@@ -182,3 +182,14 @@ jobs:
         run: |
          cp Image AnyKernel3-不带kpm/Image       
             cp Image_kpm AnyKernel3-带kpm/Image
+      - name: Upload AnyKernel3 (不带KPM)
+        uses: actions/upload-artifact@v4
+        with:
+         name: AnyKernel3_SuKiSu_${{ env.KSUVER }}_不带kpm
+         path: kernel_workspace/kernel_platform/dist/AnyKernel3-不带kpm/*
+         
+      - name: Upload AnyKernel3 (带KPM)
+        uses: actions/upload-artifact@v4
+        with:
+         name: Image_SuKiSu_${{ env.KSUVER }}_带kpm
+         path: kernel_workspace/kernel_platform/dist/AnyKernel3-带kpm/*
