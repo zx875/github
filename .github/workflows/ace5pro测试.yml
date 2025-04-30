@@ -178,8 +178,11 @@ jobs:
     
       - name: 复制镜像到对应目录并统一命名为 lmage
         run: |
+         cd /home/runner/work/github-/github-/kernel_workspace/kernel_platform/dist
+         ls -l
          cp Image AnyKernel3-不带kpm/Image       
-            cp Image_kpm AnyKernel3-带kpm/Image
+         cp Image_kpm AnyKernel3-带kpm/Image
+            
       - name: Upload AnyKernel3 (不带KPM)
         uses: actions/upload-artifact@v4
         with:
