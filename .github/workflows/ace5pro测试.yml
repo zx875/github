@@ -170,7 +170,7 @@ jobs:
 
       - name: Prepare AnyKernel3 Packages
         run: |
-         cd kernel_workspace/kernel_platform/dist/
+         cd /home/runner/work/github-/github-/kernel_workspace/kernel_platform/dist
          git clone https://github.com/egcd123/AnyKernel3-ace5Pro.git AnyKernel3-不带kpm --depth=1
          git clone https://github.com/egcd123/AnyKernel3-ace5Pro.git AnyKernel3-带kpm --depth=1
          rm -rf AnyKernel3-{带kpm,不带kpm}/.git
