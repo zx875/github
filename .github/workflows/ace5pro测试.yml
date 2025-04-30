@@ -160,7 +160,7 @@ jobs:
       - name: Generate Kernel Images
         run: |
          cd kernel_workspace/kernel_platform/dist/
-         cp image Image_original  
+         cp lmage Image_original  
     
       - name: patch kpm
         run: |
