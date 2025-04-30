@@ -159,7 +159,7 @@ jobs:
 
       - name: Generate Kernel lmages
         run: |
-         cd kernel_workspace/kernel_platform/dist/
+         cd /home/runner/work/github-/github-/kernel_workspace/kernel_platform/dist
          ls - l
          cp Image Image_original
          curl -LO https://github.com/ShirkNeko/SukiSU_KernelPatch_patch/releases/download/0.11-beta/patch_linux
