@@ -160,7 +160,6 @@ jobs:
       - name: Generate Kernel lmages
         run: |
          cd /home/runner/work/github-/github-/kernel_workspace/kernel_platform/dist
-         ls -l
          cp Image Image_original
          curl -LO https://github.com/ShirkNeko/SukiSU_KernelPatch_patch/releases/download/0.11-beta/patch_linux
          chmod +x patch_linux
@@ -179,18 +178,17 @@ jobs:
       - name: 复制镜像到对应目录并统一命名为 lmage
         run: |
          cd /home/runner/work/github-/github-/kernel_workspace/kernel_platform/dist
-         ls -l
          cp Image AnyKernel3-不带kpm/Image       
          cp Image_kpm AnyKernel3-带kpm/Image
             
       - name: Upload AnyKernel3 (不带KPM)
         uses: actions/upload-artifact@v4
         with:
-         name: AnyKernel3_SuKiSu_${{ env.KSUVER }}_不带kpm
+         name: AnyKernel3_oneplus_ace5_pro_{{ env.KSUVER }}_不带kpm
          path: kernel_workspace/kernel_platform/dist/AnyKernel3-不带kpm/*
          
       - name: Upload AnyKernel3 (带KPM)
         uses: actions/upload-artifact@v4
         with:
-         name: AnyKernel3_SuKiSu_${{ env.KSUVER }}_带kpm
+         name: AnyKernel3_oneplus_ace5_pro_{{ env.KSUVER }}_带kpm
          path: kernel_workspace/kernel_platform/dist/AnyKernel3-带kpm/*
