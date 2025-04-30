@@ -1,4 +1,4 @@
-name: ace5pro
+name: ace5pro带kpm
 on:
   workflow_dispatch:
     inputs:
@@ -48,7 +48,7 @@ jobs:
       - name: Configure Git
         run: |
          git config --global user.name "build"
-         git config --global user.email "3028172686@qq.com"
+         git config --global user.email "2106456897@qq.com"
 
       - name: Install dependencies
         run: |
@@ -169,19 +169,17 @@ jobs:
       - name: Make AnyKernel3
         run: |
          if [ "${{ github.event.inputs.FEIL }}" = "oneplus_ace5_pro" ]; then
-          git clone -b a5p https://github.com/egcd123/AnyKernel3.git --depth=1
-         else
-          git clone https://github.com/egcd123/AnyKernel3.git --depth=1
+          git clone https://github.com/egcd123/AnyKernel3-ace5Pro.git --depth=1
          fi
-         rm -rf ./AnyKernel3/.git
-         rm -rf ./AnyKernel3/push.sh
-         cp kernel_workspace/kernel_platform/dist/Image ./AnyKernel3/
+         rm -rf ./AnyKernel3-ace5Pro/.git
+         rm -rf ./AnyKernel3-ace5Pro/push.sh
+         cp kernel_workspace/kernel_platform/dist/Image ./AnyKernel3-ace5Pro/
 
       - name: Upload AnyKernel3
         uses: actions/upload-artifact@v4
         with:
-         name: SuKiSu_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}
-         path: ./AnyKernel3/*
+         name: AnyKernel3_SuKiSu_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}
+         path: ./AnyKernel3-ace5Pro/*
          
       - name: Upload Image
         uses: actions/upload-artifact@v4
