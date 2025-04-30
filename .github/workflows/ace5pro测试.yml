@@ -191,11 +191,11 @@ jobs:
       - name: Upload AnyKernel3 (不带KPM)
         uses: actions/upload-artifact@v4
         with:
-         name: AnyKernel3_oneplus_ace5_pro_{{ env.KSUVER }}_不带kpm
-         path: kernel_workspace/kernel_platform/dist/AnyKernel3-不带kpm/*
+         name: AnyKernel3_oneplus_ace5_pro_${{ env.KSUVER }}_不带kpm
+         path: ./AnyKernel3-不带kpm/*
          
       - name: Upload AnyKernel3 (带KPM)
         uses: actions/upload-artifact@v4
         with:
-         name: AnyKernel3_oneplus_ace5_pro_{{ env.KSUVER }}_带kpm
-         path: kernel_workspace/kernel_platform/dist/AnyKernel3-带kpm/*
+         name: AnyKernel3_oneplus_ace5_pro_${{ env.KSUVER }}_带kpm
+         path: ./AnyKernel3-带kpm/*
