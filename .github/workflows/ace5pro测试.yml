@@ -157,18 +157,18 @@ jobs:
          cd kernel_workspace/kernel_platform
          tools/bazel run --config=fast --config=stamp --lto=thin //common:kernel_aarch64_dist -- --dist_dir=dist
 
-      - name: Generate Kernel Images
+      - name: Generate Kernel lmages
         run: |
          cd kernel_workspace/kernel_platform/dist/
-         mv lmage Image_original  
+         mv lmage lmage_original  
     
       - name: patch kpm
         run: |
          curl -LO https://github.com/ShirkNeko/SukiSU_KernelPatch_patch/releases/download/0.11-beta/patch_linux
          chmod +x patch_linux
          ./patch_linux
-         mv oImage Image_kpm     
-         mv Image_original Image
+         mv olmage lmage_kpm     
+         mv lmage_original lmage
 
       - name: Prepare AnyKernel3 Packages
         run: |
@@ -178,10 +178,10 @@ jobs:
          rm -rf AnyKernel3-{带kpm,不带kpm}/.git
          rm -f AnyKernel3-{带kpm,不带kpm}/push.sh
     
-      - name: 复制镜像到对应目录并统一命名为 Image
+      - name: 复制镜像到对应目录并统一命名为 lmage
         run: |
-         cp Image AnyKernel3-不带kpm/Image       
-            cp Image_kpm AnyKernel3-带kpm/Image
+         cp lmage AnyKernel3-不带kpm/lmage       
+            cp lmage_kpm AnyKernel3-带kpm/lmage
       - name: Upload AnyKernel3 (不带KPM)
         uses: actions/upload-artifact@v4
         with:
@@ -191,5 +191,5 @@ jobs:
       - name: Upload AnyKernel3 (带KPM)
         uses: actions/upload-artifact@v4
         with:
-         name: Image_SuKiSu_${{ env.KSUVER }}_带kpm
+         name: lmage_SuKiSu_${{ env.KSUVER }}_带kpm
          path: kernel_workspace/kernel_platform/dist/AnyKernel3-带kpm/*
