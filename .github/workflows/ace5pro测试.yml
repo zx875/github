@@ -160,7 +160,7 @@ jobs:
       - name: Generate Kernel lmages
         run: |
          cd kernel_workspace/kernel_platform/dist/
-         mv lmage lmage_original  
+         cp lmage lmage_original  
     
       - name: patch kpm
         run: |
