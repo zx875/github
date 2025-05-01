@@ -177,25 +177,25 @@ jobs:
       - name: Prepare AnyKernel3 Packages
         run: |
          cd /home/runner/work/github-/github-/kernel_workspace/kernel_platform/dist
-         git clone https://github.com/egcd123/AnyKernel3-ace5Pro.git AnyKernel3-不带kpm --depth=1
-         git clone https://github.com/egcd123/AnyKernel3-ace5Pro.git AnyKernel3-带kpm --depth=1
-         rm -rf AnyKernel3-{带kpm,不带kpm}/.git
-         rm -f AnyKernel3-{带kpm,不带kpm}/push.sh
+         git clone https://github.com/egcd123/AnyKernel3-ace5Pro.git AnyKernel3-no_kpm --depth=1
+         git clone https://github.com/egcd123/AnyKernel3-ace5Pro.git AnyKernel3-kpm --depth=1
+         rm -rf AnyKernel3-{kpm,no_kpm}/.git
+         rm -f AnyKernel3-{kpm,no_kpm}/push.sh
     
       - name: 复制镜像到对应目录并统一命名为 lmage
         run: |
          cd /home/runner/work/github-/github-/kernel_workspace/kernel_platform/dist
-         cp Image AnyKernel3-不带kpm/Image       
-         cp Image_kpm AnyKernel3-带kpm/Image
+         cp Image AnyKernel3-no_kpm/Image       
+         cp Image_kpm AnyKernel3-kpm/Image
             
-      - name: Upload AnyKernel3 (不带KPM)
+      - name: Upload AnyKernel3 (no_KPM)
         uses: actions/upload-artifact@v4
         with:
-         name: AnyKernel3_oneplus_ace5_pro_${{ env.KSUVER }}_不带kpm
-         path: kernel_workspace/kernel_platform/dist/AnyKernel3-不带kpm/*
+         name: AnyKernel3_oneplus_ace5_pro_${{ env.KSUVER }}_no_kpm
+         path: kernel_workspace/kernel_platform/dist/AnyKernel3-no_kpm/*
          
-      - name: Upload AnyKernel3 (带KPM)
+      - name: Upload AnyKernel3 (KPM)
         uses: actions/upload-artifact@v4
         with:
-         name: AnyKernel3_oneplus_ace5_pro_${{ env.KSUVER }}_带kpm
-         path: kernel_workspace/kernel_platform/dist/AnyKernel3-带kpm/*
+         name: AnyKernel3_oneplus_ace5_pro_${{ env.KSUVER }}_kpm
+         path: kernel_workspace/kernel_platform/dist/AnyKernel3-kpm/*
