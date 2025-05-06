@@ -251,8 +251,8 @@ jobs:
       - name: Prepare AnyKernel3 Packages
         run: |
          cd kernel_workspace/kernel_platform/dist
-         git clone https://github.com/egcd123/AnyKernel3-ace5Pro.git AnyKernel3-no_kpm --depth=1
-         git clone https://github.com/egcd123/AnyKernel3-ace5Pro.git AnyKernel3-kpm --depth=1
+         git clone https://github.com/Kernel-SU/AnyKernel3 AnyKernel3-no_kpm --depth=1
+         git clone https://github.com/Kernel-SU/AnyKernel3 AnyKernel3-kpm --depth=1
          rm -rf AnyKernel3-{kpm,no_kpm}/.git
          rm -f AnyKernel3-{kpm,no_kpm}/push.sh
     
