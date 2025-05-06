@@ -1,4 +1,4 @@
-name: Build ace3Pro
+name: ace3Pro
 on:
   workflow_dispatch:
     inputs:
